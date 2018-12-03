@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ValuesGenerator;
+using System.Reflection;
 
 namespace Faker
 {
@@ -28,22 +29,74 @@ namespace Faker
                     created = Activator.CreateInstance(type);
                 }
             }
-            else if (type.IsClass && !type.IsGenericType && !type.IsArray && !type.IsPointer && !type.IsAbstract && !generatedTypes.Contains(type))
+            else if (type.IsClass && !type.IsGenericType && !type.IsArray && !type.IsAbstract && !generatedTypes.Contains(type))
             {
                 created = CreateCustomObject(type);
-                FillFieldsAndProperties(created);
+                if (created != null)
+                {
+                    SetFieldsValues(created);
+                    SetPropertiesValues(created);
+                }
             }
             return created;
         }
 
-        private void FillFieldsAndProperties(object o)
+        private void SetFieldsValues(object o)
         {
+            Type type = o.GetType();
+            foreach (FieldInfo fieldInfo in type.GetFields(BindingFlags.Instance | BindingFlags.Public))
+            {
+                object fieldValue = Create(fieldInfo.FieldType);
+                fieldInfo.SetValue(o, fieldValue);
+            }
 
+        }
+
+        private void SetPropertiesValues(object o)
+        {
+            Type type = o.GetType();
+            foreach (PropertyInfo propertyInfo in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
+            {
+                if (propertyInfo.CanWrite)
+                {
+                    object propertyValue = Create(propertyInfo.PropertyType);
+                    propertyInfo.SetValue(o, propertyValue);
+                }
+            }
         }
 
         private object CreateCustomObject(Type type)
         {
-            return null;
+            object created = null;
+            ConstructorInfo[] constructors = type.GetConstructors();
+            Array.Sort<ConstructorInfo>(constructors, (o1, o2) => o2.GetParameters().Length - o1.GetParameters().Length);
+            foreach (ConstructorInfo constructor in constructors)
+            {
+                created = CreateObjectByConstructor(constructor);
+                if (created != null)
+                {
+                    return created;
+                }
+            }
+            return created;
+        }
+
+        private object CreateObjectByConstructor(ConstructorInfo constructor)
+        {
+            List<object> parametersValues = new List<object>();
+            foreach (ParameterInfo parameter in constructor.GetParameters())
+            {
+                object value = Create(parameter.ParameterType);
+                parametersValues.Add(value);
+            }
+            try
+            {
+                return constructor.Invoke(parametersValues.ToArray());
+            }
+            catch (TargetInvocationException)
+            {
+                return null;
+            }
         }
     }
 }
