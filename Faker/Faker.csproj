@@ -45,5 +45,11 @@
     <Compile Include="IFaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ValuesGenerator\ValuesGenerator.csproj">
+      <Project>{6f1d3700-d7ef-4878-a257-12956ba288b4}</Project>
+      <Name>ValuesGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
