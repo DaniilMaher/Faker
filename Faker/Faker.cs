@@ -13,6 +13,7 @@ namespace Faker
         public Faker()
         {
             generatedTypes = new Stack<Type>();
+            baseTypesGenerators = GeneratorsDictionaryCreator.CreateBaseTypesGeneratorsDictionary();
         }
 
         public T Create<T>()
