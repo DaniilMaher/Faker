@@ -10,6 +10,11 @@ namespace Faker
         private Dictionary<Type, IBaseTypeValueGenerator> baseTypesGenerators;
         private Stack<Type> generatedTypes;
 
+        public Faker()
+        {
+            generatedTypes = new Stack<Type>();
+        }
+
         public T Create<T>()
         {
             return (T)Create(typeof(T));
@@ -31,12 +36,14 @@ namespace Faker
             }
             else if (type.IsClass && !type.IsGenericType && !type.IsArray && !type.IsAbstract && !generatedTypes.Contains(type))
             {
+                generatedTypes.Push(type);
                 created = CreateCustomObject(type);
                 if (created != null)
                 {
                     SetFieldsValues(created);
                     SetPropertiesValues(created);
                 }
+                generatedTypes.Pop();
             }
             return created;
         }

@@ -41,6 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTypesValuesGenerators\BoolValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\ByteValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\CharValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\DecimalValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\DoubleValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\FloatValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\IntValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\LongValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\SByteValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\ShortValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\UIntValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\UShortValueGenerator.cs" />
     <Compile Include="IBaseTypeValueGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
