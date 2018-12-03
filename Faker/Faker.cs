@@ -2,7 +2,7 @@
 
 namespace Faker
 {
-    class Faker : IFaker
+    public class Faker : IFaker
     {
         public T Create<T>()
         {
