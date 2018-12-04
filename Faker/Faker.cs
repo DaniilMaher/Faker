@@ -21,7 +21,7 @@ namespace Faker
             return (T)Create(typeof(T));
         }
 
-        private object Create(Type type)
+        internal object Create(Type type)
         {
             object created = null;
             if (type.IsValueType)

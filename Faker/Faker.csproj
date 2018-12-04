@@ -41,15 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTypesValuesGenerators\BoolValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\ByteValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\CharValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\DateTimeValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\DecimalValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\DoubleValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\FloatValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\IntValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\LongValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\SByteValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\ShortValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\StringValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\UIntValueGenerator.cs" />
+    <Compile Include="BaseTypesValuesGenerators\UShortValueGenerator.cs" />
     <Compile Include="Faker.cs" />
+    <Compile Include="GeneratorsDictionaryCreator.cs" />
+    <Compile Include="GenericTypeValuesGenerators\ArrayGenerator.cs" />
+    <Compile Include="IBaseTypeValueGenerator.cs" />
     <Compile Include="IFaker.cs" />
+    <Compile Include="IGenericTypeValueGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ValuesGenerator\ValuesGenerator.csproj">
-      <Project>{6f1d3700-d7ef-4878-a257-12956ba288b4}</Project>
-      <Name>ValuesGenerator</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

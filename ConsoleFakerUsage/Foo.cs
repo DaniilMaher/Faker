@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ConsoleFakerUsage
 {
     class Foo
@@ -21,7 +16,7 @@ namespace ConsoleFakerUsage
 
         public void Print()
         {
-            Console.WriteLine(field1 + " " + field2 + " " + field3 + " ");
+            Console.WriteLine(field1 + " " + field2 + " " + field3 + " " + ch);
         }
     }
 }
