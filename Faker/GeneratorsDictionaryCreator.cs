@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ValuesGenerator.BaseTypesValuesGenerators;
+using Faker.BaseTypesValuesGenerators;
 
-namespace ValuesGenerator
+namespace Faker
 {
     public class GeneratorsDictionaryCreator
     {
@@ -19,8 +19,6 @@ namespace ValuesGenerator
             dictionary.Add(typeof(long), new LongValueGenerator());
             dictionary.Add(typeof(sbyte), new SByteValueGenerator());
             dictionary.Add(typeof(short), new ShortValueGenerator());
-            dictionary.Add(typeof(uint), new UIntValueGenerator());
-            dictionary.Add(typeof(ushort), new UShortValueGenerator());
             return dictionary;
         }
     }

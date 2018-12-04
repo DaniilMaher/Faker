@@ -1,4 +1,4 @@
-﻿namespace ValuesGenerator
+﻿namespace Faker
 {
     public interface IBaseTypeValueGenerator
     {

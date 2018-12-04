@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ValuesGenerator
+namespace Faker
 {
     interface IGenericTypeValueGenerator : IBaseTypeValueGenerator
     {

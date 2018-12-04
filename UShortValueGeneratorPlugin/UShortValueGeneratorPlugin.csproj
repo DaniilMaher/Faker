@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF0991AB-147B-4897-B085-359A41FD45E8}</ProjectGuid>
+    <ProjectGuid>{F129FFB4-D624-49C6-8465-9F6B72B5DE47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Faker</RootNamespace>
-    <AssemblyName>Faker</AssemblyName>
+    <RootNamespace>UShortValueGeneratorPlugin</RootNamespace>
+    <AssemblyName>UShortValueGeneratorPlugin</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,26 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseTypesValuesGenerators\BoolValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\ByteValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\CharValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\DateTimeValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\DecimalValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\DoubleValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\FloatValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\IntValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\LongValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\SByteValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\ShortValueGenerator.cs" />
-    <Compile Include="BaseTypesValuesGenerators\StringValueGenerator.cs" />
-    <Compile Include="Faker.cs" />
-    <Compile Include="GeneratorsDictionaryCreator.cs" />
-    <Compile Include="GenericTypeValuesGenerators\ArrayGenerator.cs" />
-    <Compile Include="IBaseTypeValueGenerator.cs" />
-    <Compile Include="IBaseTypeValueGeneratorPlugin.cs" />
-    <Compile Include="IFaker.cs" />
-    <Compile Include="IGenericTypeValueGenerator.cs" />
+    <Compile Include="UShortValueGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Faker\Faker.csproj">
+      <Project>{ef0991ab-147b-4897-b085-359a41fd45e8}</Project>
+      <Name>Faker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

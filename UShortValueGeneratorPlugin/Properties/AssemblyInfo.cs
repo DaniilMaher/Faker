@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ValuesGenerator")]
+[assembly: AssemblyTitle("UShortValueGeneratorPlugin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ValuesGenerator")]
+[assembly: AssemblyProduct("UShortValueGeneratorPlugin")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("6f1d3700-d7ef-4878-a257-12956ba288b4")]
+[assembly: Guid("f129ffb4-d624-49c6-8465-9f6b72b5de47")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

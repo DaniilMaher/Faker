@@ -1,4 +1,4 @@
-﻿using Faker;
+﻿using System;
 
 namespace ConsoleFakerUsage
 {
@@ -8,7 +8,10 @@ namespace ConsoleFakerUsage
         {
             Faker.Faker faker = new Faker.Faker();
             Foo foo = faker.Create<Foo>();
-            foo.Print();          
+            foo.Print();
+            int[] arr = { 1, 46, 3};
+            Console.WriteLine(arr.GetType().Name);
+            Console.WriteLine(arr.GetType().IsGenericType);
         }
     }
 }

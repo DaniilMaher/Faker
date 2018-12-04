@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ValuesGenerator.BaseTypesValuesGenerators
+namespace Faker.BaseTypesValuesGenerators
 {
     public class CharValueGenerator : IBaseTypeValueGenerator
     {

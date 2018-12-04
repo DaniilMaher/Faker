@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ValuesGenerator.GenericTypeValuesGenerators
+namespace Faker.GenericTypeValuesGenerators
 {
     public class ArrayGenerator : IGenericTypeValueGenerator
     {

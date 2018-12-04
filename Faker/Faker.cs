@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using ValuesGenerator;
 using System.Reflection;
+using System.IO;
 
 namespace Faker
 {
@@ -9,11 +9,13 @@ namespace Faker
     {
         private Dictionary<Type, IBaseTypeValueGenerator> baseTypesGenerators;
         private Stack<Type> generatedTypes;
+        private string pluginsPath = "Plugins";
 
         public Faker()
         {
             generatedTypes = new Stack<Type>();
             baseTypesGenerators = GeneratorsDictionaryCreator.CreateBaseTypesGeneratorsDictionary();
+            PlugPlugins();
         }
 
         public T Create<T>()
@@ -35,6 +37,7 @@ namespace Faker
                     created = Activator.CreateInstance(type);
                 }
             }
+           
             else if (type.IsClass && !type.IsGenericType && !type.IsArray && !type.IsAbstract && !generatedTypes.Contains(type))
             {
                 generatedTypes.Push(type);
@@ -105,6 +108,40 @@ namespace Faker
             {
                 return null;
             }
+        }
+
+        private void PlugPlugins()
+        {
+            List<Assembly> assemblies = new List<Assembly>();
+            try
+            {
+                foreach (string file in Directory.GetFiles(pluginsPath, "*.dll"))
+                {
+                    try
+                    {
+                        assemblies.Add(Assembly.LoadFile(new FileInfo(file).FullName));
+                    }
+                    catch (BadImageFormatException)
+                    { }
+                    catch (FileLoadException)
+                    { }
+                }
+            }
+            catch (DirectoryNotFoundException)
+            { }
+
+            foreach (Assembly assembly in assemblies)
+            {
+                foreach (Type type in assembly.GetTypes())
+                {
+                    if (typeof(IBaseTypeValueGeneratorPlugin).IsAssignableFrom(type) && type.IsClass && !type.IsAbstract)
+                    {
+                        IBaseTypeValueGeneratorPlugin generator = (IBaseTypeValueGeneratorPlugin)Activator.CreateInstance(type);
+                        baseTypesGenerators.Add(generator.GeneratedValueType, generator);
+                    }
+                }
+            }
+
         }
     }
 }
