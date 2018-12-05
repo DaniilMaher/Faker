@@ -56,6 +56,7 @@
     <Compile Include="Faker.cs" />
     <Compile Include="GeneratorsDictionaryCreator.cs" />
     <Compile Include="GenericTypeValuesGenerators\ArrayGenerator.cs" />
+    <Compile Include="GenericTypeValuesGenerators\ListGenerator.cs" />
     <Compile Include="IBaseTypeValueGenerator.cs" />
     <Compile Include="IBaseTypeValueGeneratorPlugin.cs" />
     <Compile Include="IFaker.cs" />

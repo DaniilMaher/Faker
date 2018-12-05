@@ -2,7 +2,7 @@
 
 namespace Faker
 {
-    interface IGenericTypeValueGenerator : IBaseTypeValueGenerator
+    public interface IGenericTypeValueGenerator
     {
         object Generate(Type parameter);
     }

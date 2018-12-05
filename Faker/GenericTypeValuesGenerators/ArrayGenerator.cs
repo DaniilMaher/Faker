@@ -8,10 +8,10 @@ namespace Faker.GenericTypeValuesGenerators
         private Random random;
         private Dictionary<Type, IBaseTypeValueGenerator> baseTypesGenerators;
 
-        public ArrayGenerator()
+        public ArrayGenerator(Dictionary<Type, IBaseTypeValueGenerator> generators)
         {
             random = new Random();
-            baseTypesGenerators = GeneratorsDictionaryCreator.CreateBaseTypesGeneratorsDictionary();
+            baseTypesGenerators = generators;
         }
 
         public object Generate(Type type)
@@ -25,11 +25,6 @@ namespace Faker.GenericTypeValuesGenerators
                 }
             }
             return generated;
-        }
-
-        public object Generate()
-        {
-            throw new NotImplementedException();
         }
     }
 }

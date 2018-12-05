@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FakerUnitTest\FakerUnitTest.csproj">
+      <Project>{df1af09d-5981-4122-9954-aaed8afb1fbd}</Project>
+      <Name>FakerUnitTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Faker\Faker.csproj">
       <Project>{ef0991ab-147b-4897-b085-359a41fd45e8}</Project>
       <Name>Faker</Name>

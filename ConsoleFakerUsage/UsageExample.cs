@@ -10,8 +10,6 @@ namespace ConsoleFakerUsage
             Foo foo = faker.Create<Foo>();
             foo.Print();
             int[] arr = { 1, 46, 3};
-            Console.WriteLine(arr.GetType().Name);
-            Console.WriteLine(arr.GetType().IsGenericType);
         }
     }
 }

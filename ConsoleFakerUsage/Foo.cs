@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleFakerUsage
 {
-    class Foo
+    public class Foo
     {
         private ushort field1;
-        public short field2;
-        public int field3;
+        public ushort field2;
+        public uint field3;
         private char ch;
+        public List<int> arr;
 
         public Foo(ushort value, char c)
         {
@@ -18,6 +20,10 @@ namespace ConsoleFakerUsage
         public void Print()
         {
             Console.WriteLine(field1 + " " + field2 + " " + field3 + " " + ch);
+            foreach (ushort num in arr)
+            {
+                Console.Write(num + " ");
+            }
         }
     }
 }

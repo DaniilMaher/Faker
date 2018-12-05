@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
-
+using Faker.GenericTypeValuesGenerators;
 namespace Faker
 {
     public class Faker : IFaker
     {
         private Dictionary<Type, IBaseTypeValueGenerator> baseTypesGenerators;
+        private Dictionary<Type, IGenericTypeValueGenerator> genericTypesGenerators;
+        private IGenericTypeValueGenerator arrayGenerator;
+
         private Stack<Type> generatedTypes;
         private string pluginsPath = "Plugins";
 
@@ -15,6 +18,8 @@ namespace Faker
         {
             generatedTypes = new Stack<Type>();
             baseTypesGenerators = GeneratorsDictionaryCreator.CreateBaseTypesGeneratorsDictionary();
+            genericTypesGenerators = GeneratorsDictionaryCreator.CreateGenericTypesGeneratorsDictionary(baseTypesGenerators);
+            arrayGenerator = new ArrayGenerator(baseTypesGenerators);
             PlugPlugins();
         }
 
@@ -26,19 +31,23 @@ namespace Faker
         internal object Create(Type type)
         {
             object created = null;
-            if (type.IsValueType)
+            if (baseTypesGenerators.TryGetValue(type, out IBaseTypeValueGenerator generator))
             {
-                if (baseTypesGenerators.TryGetValue(type, out IBaseTypeValueGenerator generator))
-                {
-                    created = generator.Generate();
-                } 
-                else
-                {
-                    created = Activator.CreateInstance(type);
-                }
+                created = generator.Generate();
             }
-           
-            else if (type.IsClass && !type.IsGenericType && !type.IsArray && !type.IsAbstract && !generatedTypes.Contains(type))
+            else if (type.IsGenericType && genericTypesGenerators.TryGetValue(type.GetGenericTypeDefinition(), out IGenericTypeValueGenerator genericTypeGenerator))
+            {
+                created = genericTypeGenerator.Generate(type.GenericTypeArguments[0]);
+            }
+            else if (type.IsArray)
+            {
+                created = arrayGenerator.Generate(type.GetElementType());
+            }
+            else if (type.IsValueType)
+            {
+                created = Activator.CreateInstance(type);
+            }
+            else if (type.IsClass && !type.IsGenericType && !type.IsAbstract && !generatedTypes.Contains(type))
             {
                 generatedTypes.Push(type);
                 created = CreateCustomObject(type);

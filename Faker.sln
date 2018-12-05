@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIntValueGeneratorPlugin", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UShortValueGeneratorPlugin", "UShortValueGeneratorPlugin\UShortValueGeneratorPlugin.csproj", "{F129FFB4-D624-49C6-8465-9F6B72B5DE47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakerUnitTest", "FakerUnitTest\FakerUnitTest.csproj", "{DF1AF09D-5981-4122-9954-AAED8AFB1FBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F129FFB4-D624-49C6-8465-9F6B72B5DE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F129FFB4-D624-49C6-8465-9F6B72B5DE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F129FFB4-D624-49C6-8465-9F6B72B5DE47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1AF09D-5981-4122-9954-AAED8AFB1FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1AF09D-5981-4122-9954-AAED8AFB1FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1AF09D-5981-4122-9954-AAED8AFB1FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1AF09D-5981-4122-9954-AAED8AFB1FBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
